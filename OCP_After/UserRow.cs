@@ -2,20 +2,15 @@
 
 namespace OCP_After
 {
-	public class UserRow
+	public class UserRow : Row<User>
 	{
-		public UserRow(User user, int id)
+		public UserRow(User user, int id) : base (user, id)
 		{
-			User = user;
-			Id = id;
+
 		}
-
-		public int Id { get; set; }
-		public User User { get; set; }
-
-		internal string ExportCsv()
+		public override string ExportCsv()
 		{
-			return $"{User.FirstName},{User.LastName},{User.DateOfBirth.ToShortDateString()}";
+			return $"{Entity.FirstName},{Entity.LastName},{Entity.DateOfBirth.ToShortDateString()}";
 		}
 	}
 }

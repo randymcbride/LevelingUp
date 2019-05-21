@@ -6,9 +6,10 @@
  * If they are too concrete then we will end up writing an app that can't adapt to changing requirements.
  * If they are too abstract then we will waste time writing complicated code that can't accomplish our requirements.
  * 
- * UserTable breaks OCP in a couple of ways. First, if we wanted to add a property to user,
- * we would need to change the UserTable class. Second, if we wanted to add a new entity to our app,
+ * UserTable and UserRow break OCP. If we wanted to add a new entity to our app,
  * we would have to create a new *Table class from scratch, and it would look very similar to our UserTable.
+ * We don't have enough abstraction. The solution is to add a abstract table class and an abstract row class and
+ * then instantiate them as UserTable and UserRow. See the OCP_After project to see how this is accomplished.
  */
 
 namespace OCP_Before

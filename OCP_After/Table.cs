@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace OCP_After
 {
@@ -16,15 +17,27 @@ namespace OCP_After
 
 		public void Insert(EntityType entity)
 		{
-			RowType row = (RowType)Activator.CreateInstance(typeof(RowType), new object[] { entity });
+			RowType row = (RowType)Activator.CreateInstance(typeof(RowType), entity, GetNextId());
 			rows.Add(row);
 		}
-
-		private int GetNextId()
+		public string ExportCsv()
 		{
-			int nextId = ids.Count + 1;
-			ids.Add(nextId);
-			return nextId;
+			var stringBuilder = new StringBuilder();
+			stringBuilder.AppendLine(GetCsvHeader());
+			foreach (var row in rows)
+			{
+				stringBuilder.AppendLine(row.ExportCsv());
+			}
+			return stringBuilder.ToString();
 		}
+
+	protected abstract string GetCsvHeader();
+
+	private int GetNextId()
+	{
+		int nextId = ids.Count + 1;
+		ids.Add(nextId);
+		return nextId;
 	}
+}
 }
