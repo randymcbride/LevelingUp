@@ -1,52 +1,34 @@
-﻿namespace Branching
+﻿using OO_Patterns.Branching;
+using System;
+
+namespace Branching
 {
 	public class AccountGood
 	{
-		public string AccountNumber { get; private set; }
-		public bool IsFrozen { get; private set; }
-		public bool IsClosed { get; private set; }
-		public bool IsVerified { get; private set; }
-		public decimal Balance { get; private set; }
-		public void Withdraw(decimal amount)
-		{
-			if (IsFrozen)
-			{
-				throw new AccountFrozenException(AccountNumber);
-			}
-			if (IsClosed)
-			{
-				throw new AccountClosedException(AccountNumber);
-			}
-			if (!IsVerified)
-			{
-				throw new AccountNotVerifiedException(AccountNumber);
-			}
-			Balance -= amount;
-		}
-		public void Deposit(decimal amount)
-		{
-			if (IsFrozen)
-			{
-				throw new AccountFrozenException(AccountNumber);
-			}
-			if (IsClosed)
-			{
-				throw new AccountClosedException(AccountNumber);
-			}
-			Balance += amount;
-		}
-		public void Verify()
-		{
-			IsVerified = true;
-		}
+		private readonly Action resetFreezeTimer;
+		private readonly string accountNumber;
+		private IAccountState accountState;
 
-		public AccountGood(string accountNumber)
+		public decimal Balance { get; private set; }
+
+		public void Withdraw(decimal amount) => 
+			accountState = accountState.Withdraw(() => Balance -= amount);
+
+		public void Deposit(decimal amount) => 
+			accountState = accountState.Deposit(() => Balance += amount);
+
+		public void Verify() => accountState = accountState.Verify();
+
+		public void Freeze() => accountState = accountState.Freeze();
+
+		public void Close() => accountState = accountState.Close();
+
+
+		public AccountGood(Action resetFreezeTimer, string accountNumber)
 		{
-			AccountNumber = accountNumber;
-			Balance = 0;
-			IsFrozen = false;
-			IsClosed = false;
-			IsVerified = false;
+			this.resetFreezeTimer = resetFreezeTimer;
+			this.accountNumber = accountNumber;
+			this.accountState = new Unverified(resetFreezeTimer, accountNumber);
 		}
 
 	}

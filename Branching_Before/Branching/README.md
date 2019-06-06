@@ -1,3 +1,7 @@
-﻿The problem with the account class is that as we add more flags, it gets harder and harder to test.
-In order to test everything we would need to write more than 10 unit tests. Each time requirements
-change we will need to add more if statements and make the methods longer and longer.
+﻿The problem with the AccountBad class is that there are too many different paths the code could take.
+The branching if statements make the code harder to read, test, and maintain. If we could delegate the management
+of the state of the account to a different class, that would leave the account class to focus on what it was intended to do--
+manage the balance.
+
+The AccountGood class delegates its state management to the IAccountState interface. All it does is manage the balance. A good
+indicator that this solution is more object oriented is the fact that we have more than one class, and each class is simple.

@@ -5,7 +5,7 @@ using System;
 namespace OO_Patterns_Tests
 {
 	[TestClass]
-	public class AccountBadTests
+	public class AccountGoodTests
 	{
 		private Action resetFreezeTimer;
 
@@ -22,7 +22,7 @@ namespace OO_Patterns_Tests
 		[ExpectedException(typeof(AccountNotVerifiedException))]
 		public void Unverified()
 		{
-			var account = new AccountBad(resetFreezeTimer, "1");
+			var account = new AccountGood(resetFreezeTimer, "1");
 			account.Deposit(1);
 			account.Withdraw(1);
 		}
@@ -30,10 +30,8 @@ namespace OO_Patterns_Tests
 		[TestMethod]
 		public void	Verified()
 		{
-			var account = new AccountBad(resetFreezeTimer, "1")
-			{
-				IsVerified = true
-			};
+			var account = new AccountGood(resetFreezeTimer, "1");
+			account.Verify();
 			account.Deposit(1);
 			account.Withdraw(1);
 			Assert.AreEqual(account.Balance, 0);
@@ -43,10 +41,8 @@ namespace OO_Patterns_Tests
 		[ExpectedException(typeof(AccountFrozenException))]
 		public void Frozen()
 		{
-			var account = new AccountBad(resetFreezeTimer, "1")
-			{
-				IsFrozen = true
-			};
+			var account = new AccountGood(resetFreezeTimer, "1");
+			account.Freeze();
 			account.Deposit(1);
 			account.Withdraw(1);
 		}
@@ -55,10 +51,8 @@ namespace OO_Patterns_Tests
 		[ExpectedException(typeof(AccountClosedException))]
 		public void Closed()
 		{
-			var account = new AccountBad(resetFreezeTimer, "1")
-			{
-				IsClosed = true
-			};
+			var account = new AccountGood(resetFreezeTimer, "1");
+			account.Close();
 			account.Deposit(1);
 			account.Withdraw(1);
 		}

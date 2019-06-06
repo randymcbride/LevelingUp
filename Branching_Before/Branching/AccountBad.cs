@@ -6,10 +6,12 @@ namespace Branching
 	public class AccountBad
 	{
 		public string AccountNumber { get; private set; }
-		public bool IsFrozen { get; private set; }
-		public bool IsClosed { get; private set; }
-		public bool IsVerified { get; private set; }
-		public decimal Balance { get; private set; }
+		public bool IsFrozen { get; set; }
+		public bool IsClosed { get; set; }
+		public bool IsVerified { get; set; }
+		private readonly Action resetFreezeTimer;
+
+		public decimal Balance { get; set; }
 		public void Withdraw(decimal amount)
 		{
 			if (IsFrozen)
@@ -24,6 +26,7 @@ namespace Branching
 			{
 				throw new AccountNotVerifiedException(AccountNumber);
 			}
+			resetFreezeTimer();
 			Balance -= amount;
 		}
 		public void Deposit(decimal amount)
@@ -36,6 +39,7 @@ namespace Branching
 			{
 				throw new AccountClosedException(AccountNumber);
 			}
+			resetFreezeTimer();
 			Balance += amount;
 		}
 		public void Verify()
@@ -43,13 +47,14 @@ namespace Branching
 			IsVerified = true;
 		}
 
-		public AccountBad(string accountNumber)
+		public AccountBad(Action resetFreezeTimer, string accountNumber)
 		{
 			AccountNumber = accountNumber;
 			Balance = 0;
 			IsFrozen = false;
 			IsClosed = false;
 			IsVerified = false;
+			this.resetFreezeTimer = resetFreezeTimer;
 		}
 
 	}
