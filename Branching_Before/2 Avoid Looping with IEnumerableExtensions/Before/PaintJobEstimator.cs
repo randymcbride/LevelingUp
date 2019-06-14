@@ -12,7 +12,7 @@ namespace OO_Patterns.Looping.Before
 			{
 				if (painter.IsAvailable)
 				{
-					if (painter.GetEstimate(squareFeet) < bestPrice)
+					if (painter.GetCostEstimate(squareFeet) < bestPrice)
 					{
 						best = painter;
 					}

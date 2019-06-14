@@ -13,9 +13,9 @@ namespace OO_Patterns_Tests.Looping
 		[TestMethod]
 		public void GetsCheapestPainter()
 		{
-			var expensivePainter = new Painter { Rate = 100, IsAvailable = true };
-			var cheapPainter = new Painter { Rate = 50, IsAvailable = true };
-			var unavailablePainter = new Painter { Rate = 40, IsAvailable = false };
+			var expensivePainter = new Painter { HourlyRate = 100, IsAvailable = true, SquareFeetPerHour = 200 };
+			var cheapPainter = new Painter { HourlyRate = 50, IsAvailable = true, SquareFeetPerHour = 200 };
+			var unavailablePainter = new Painter { HourlyRate = 40, IsAvailable = false, SquareFeetPerHour = 200 };
 			var painters = new List<Painter>
 			{
 				expensivePainter, cheapPainter, unavailablePainter
