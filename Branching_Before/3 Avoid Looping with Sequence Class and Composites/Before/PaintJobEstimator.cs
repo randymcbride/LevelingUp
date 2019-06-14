@@ -24,6 +24,12 @@ namespace OO_Patterns.Sequence_Class_and_Composites.Before
 				.Where(p => p.IsAvailable)
 				.Select(p => p.HourlyRate * totalHours)
 				.Sum();
+
+			return new PainterGroup
+			{
+				HourlyRate = totalCost / totalHours,
+				HoursPerSquareFoot = totalHours / squareFeet
+			};
 		}
 	}
 }
