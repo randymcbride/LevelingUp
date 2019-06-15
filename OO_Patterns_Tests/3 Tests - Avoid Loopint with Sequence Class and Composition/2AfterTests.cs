@@ -3,10 +3,10 @@ using OO_Patterns.Looping;
 using OO_Patterns.Sequence_Class_and_Composites.Before;
 using System.Collections.Generic;
 
-namespace OO_Patterns_Tests._3_Tests___Avoid_Loopint_with_Sequence_Class_and_Composition.Before
+namespace OO_Patterns_Tests._3_Tests___Avoid_Loopint_with_Sequence_Class_and_Composition.After
 {
 	[TestClass]
-	public class BeforeTests
+	public class AfterTests
 	{
 		[TestMethod]
 		public void PaintJobEstimator_SelectsTheCheapestPainter()
@@ -36,6 +36,21 @@ namespace OO_Patterns_Tests._3_Tests___Avoid_Loopint_with_Sequence_Class_and_Com
 			var fastestAvailable = PaintJobEstimator.SelectFastestPainter(100, painters);
 
 			Assert.AreEqual(fastestAvailable, fastPainter);
+		}
+
+		[TestMethod]
+		public void PaintJobEstimator_CreatesProperPainterGroup()
+		{
+			var fastPainter = new Painter { HourlyRate = 10, IsAvailable = true, SquareFeetPerHour = 100 };
+			var cheapPainter = new Painter { HourlyRate = 20, IsAvailable = true, SquareFeetPerHour = 200 };
+			var unavailablePainter = new Painter { HourlyRate = 40, IsAvailable = false, SquareFeetPerHour = 300 };
+			var painters = new List<Painter>
+			{
+				fastPainter, cheapPainter, unavailablePainter
+			};
+			var painterGroup = PaintJobEstimator.WorkTogether(1000, painters);
+
+			Assert.AreEqual(100, painterGroup.GetCostEstimate(1000));
 		}
 	}
 }

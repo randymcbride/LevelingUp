@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OO_Patterns.Sequence_Class_and_Composites.Before
+namespace OO_Patterns.Sequence_Class_and_Composites.After
 {
 	public class PainterGroup : IPainter
 	{
