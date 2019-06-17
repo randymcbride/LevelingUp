@@ -14,7 +14,7 @@ namespace OO_Patterns.Sequence_Class_and_Composites.Before
 		public static Painter SelectFastestPainter(double squareFeet, IEnumerable<Painter> painters) =>
 			painters.Where(painter => painter.IsAvailable).WithMinimum(Painter => Painter.GetTimeEstimate(squareFeet));
 
-		public static IPainter WorkTogether(double squareFeet, IEnumerable<Painter> painters)
+		public static void WorkTogether(double squareFeet, IEnumerable<Painter> painters)
 		{
 			//This is getting messy
 			throw new NotImplementedException();
