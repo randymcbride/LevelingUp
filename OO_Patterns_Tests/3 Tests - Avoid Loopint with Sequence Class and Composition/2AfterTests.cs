@@ -28,7 +28,7 @@ namespace OO_Patterns_Tests._3_Tests___Avoid_Loopint_with_Sequence_Class_and_Com
 		}
 
 		[TestMethod]
-		public void PaintJobEstimator_SelectsTheCheapestPainter()
+		public void SelectsTheCheapestPainter()
 		{
 			var cheapestAvailable = painters.GetAvailable().GetCheapest(1000);
 
@@ -36,7 +36,7 @@ namespace OO_Patterns_Tests._3_Tests___Avoid_Loopint_with_Sequence_Class_and_Com
 		}
 
 		[TestMethod]
-		public void PaintJobEstimator_SelectsTheFastestPainter()
+		public void SelectsTheFastestPainter()
 		{
 			var fastestAvailable = painters.GetAvailable().GetFastest(1000);
 
@@ -44,7 +44,7 @@ namespace OO_Patterns_Tests._3_Tests___Avoid_Loopint_with_Sequence_Class_and_Com
 		}
 
 		[TestMethod]
-		public void PaintJobEstimator_CreatesProperPainterGroup()
+		public void CreatesProperPainterGroup()
 		{
 
 			var painterGroup = painters.WorkTogether(1000);

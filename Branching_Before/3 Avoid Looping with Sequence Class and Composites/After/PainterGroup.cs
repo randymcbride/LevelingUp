@@ -9,6 +9,8 @@ namespace OO_Patterns.Sequence_Class_and_Composites.After
 	{
 		public double HoursPerSquareFoot { get; set; }
 		public double HourlyRate { get; set; }
+		public bool IsAvailable { get; set; }
+
 		public double GetCostEstimate(double squareFeet) => GetTimeEstimate(squareFeet).TotalHours * HourlyRate;
 
 		public TimeSpan GetTimeEstimate(double squareFeet) => TimeSpan.FromHours(HoursPerSquareFoot * squareFeet);
