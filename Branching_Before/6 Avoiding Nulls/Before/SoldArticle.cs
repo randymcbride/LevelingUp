@@ -1,13 +1,14 @@
-﻿namespace OO_Patterns._6_Avoiding_Nulls.Before
+﻿using System;
+
+namespace OO_Patterns._6_Avoiding_Nulls.Before
 {
 	public class SoldArticle
 	{
 		public Warranty MoneyBack { get; }
-		public Warranty Express { get; }
-		public SoldArticle(Warranty moneyBack, Warranty express)
+		public SoldArticle(Warranty moneyBack)
 		{
 			MoneyBack = moneyBack;
-			Express = express;
 		}
+		public bool CanBeReturned { get => MoneyBack.IsValidOn(DateTime.Now); }
 	}
 }

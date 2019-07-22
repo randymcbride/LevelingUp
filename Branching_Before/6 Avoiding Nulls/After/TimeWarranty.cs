@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace OO_Patterns._6_Avoiding_Nulls.Before
+namespace OO_Patterns._6_Avoiding_Nulls.After
 {
-	public class Warranty
+	public class TimeWarranty : IWarranty
 	{
 		public DateTime IssueDate { get; }
 		public TimeSpan Duration { get; }
-		public Warranty(DateTime issueDate, TimeSpan duration)
+		public TimeWarranty(DateTime issueDate, TimeSpan duration)
 		{
 			IssueDate = issueDate;
 			Duration = duration;
