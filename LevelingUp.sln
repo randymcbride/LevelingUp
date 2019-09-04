@@ -39,10 +39,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OO_Patterns", "Branching_Be
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OO_Patterns_Tests", "OO_Patterns_Tests\OO_Patterns_Tests.csproj", "{6543EC32-D808-4BA7-ADC7-263083070AEA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp_TipsAndTraps", "CSharp_TipsAndTraps", "{81432BEF-468E-495F-A41C-AAA3FD94A9B8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpTipsAndTraps", "CSharpTipsAndTraps\CSharpTipsAndTraps.csproj", "{D57E699C-2C21-4DEF-8F71-53310D78227C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,10 +89,6 @@ Global
 		{6543EC32-D808-4BA7-ADC7-263083070AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6543EC32-D808-4BA7-ADC7-263083070AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6543EC32-D808-4BA7-ADC7-263083070AEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D57E699C-2C21-4DEF-8F71-53310D78227C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D57E699C-2C21-4DEF-8F71-53310D78227C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D57E699C-2C21-4DEF-8F71-53310D78227C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D57E699C-2C21-4DEF-8F71-53310D78227C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,7 +110,6 @@ Global
 		{4AFC8C9C-5998-492C-8A2C-7906EDFD7EC7} = {D553B3B9-5518-4027-A37E-34C3C4020A20}
 		{56346568-D3BD-4648-9950-752C73E7C58B} = {F82B6688-5307-4BC6-8433-BAEEA8474B2A}
 		{6543EC32-D808-4BA7-ADC7-263083070AEA} = {F82B6688-5307-4BC6-8433-BAEEA8474B2A}
-		{D57E699C-2C21-4DEF-8F71-53310D78227C} = {81432BEF-468E-495F-A41C-AAA3FD94A9B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0ED586A-FE8B-439C-AF88-B60127A3CA40}
