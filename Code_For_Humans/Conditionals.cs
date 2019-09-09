@@ -52,5 +52,30 @@ namespace Code_For_Humans
 				//do secure stuff
 			}
 		}
+
+		[TestMethod]
+		public void Ternary_is_elegant()
+		{
+			int age = 66;
+			double discount;
+			//Compare this lengthy statement to the one below it. Which is easier to read? Which is easier to not read (if you didn't care about it)?
+			if (age > 65)
+			{
+				discount = .10;
+			}
+			else
+			{
+				discount = 0;
+			}
+
+			//ternary statement
+			discount = age > 65 ? .10 : 0;
+
+			//avoid chained ternaries
+			bool summerSale = false;
+			discount = summerSale ? .50 : age > 65 ? .10 : 0;
+
+			//avoid ternaries that are too long, if you have to break it out into multiple lines, consider the traditional approach
+		}
 	}
 }
