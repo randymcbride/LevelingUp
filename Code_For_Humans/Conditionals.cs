@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Code_For_Humans.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Code_For_Humans
 {
@@ -77,5 +79,77 @@ namespace Code_For_Humans
 
 			//avoid ternaries that are too long, if you have to break it out into multiple lines, consider the traditional approach
 		}
+
+		[TestMethod]
+		public void Avoid_Stringly_Typed()
+		{
+			var employee = new Employee();
+			//this is fragile. It is not self documenting. It is not supported by intellisense. It is not searchable.
+			if (employee.BadTypeExample == "manager") ;
+
+			//This is much better
+			if (employee.Type == EmployeeType.Manager) ;
+		}
+
+		[TestMethod]
+		public void Avoid_Magic_Numbers()
+		{
+			int age = 21;
+
+			//The intent is not clear
+			if(age >= 21)
+			{
+
+			}
+
+			//That is better
+			const int legalDrinkingAge = 21;
+			if(age > legalDrinkingAge)
+			{
+
+			}
+		}
+
+		[TestMethod]
+		public void Encapsulate_Complex_Conditionals()
+		{
+			var employee = new Employee();
+
+			//this is hard to read. and hard to not read (if the reader doesn't care about it). Alos, its not clear what the intent is.
+			if(!employee.TerminationDate.HasValue
+				&& DateTime.Now - employee.HireDate > TimeSpan.FromDays(10*365)
+				&& employee.Age > 65)
+			{
+
+			}
+
+			//here is one way to fix it
+			var eligibleForPension = !employee.TerminationDate.HasValue
+				&& DateTime.Now - employee.HireDate > TimeSpan.FromDays(10 * 365)
+				&& employee.Age > 65;
+
+			if (eligibleForPension)
+			{
+
+			}
+
+			//here is another way
+			if (EligibleForPension(employee))
+			{
+
+			}
+
+			//And probably the best way
+			if (employee.IsEligibleForPension())
+			{
+
+			}
+
+		}
+
+		private bool EligibleForPension(Employee employee) => 
+			!employee.TerminationDate.HasValue
+				&& DateTime.Now - employee.HireDate > TimeSpan.FromDays(10 * 365)
+				&& employee.Age > 65;
 	}
 }

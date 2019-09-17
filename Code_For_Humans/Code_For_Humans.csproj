@@ -49,6 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Employee.cs" />
+    <Compile Include="Common\EmployeeType.cs" />
     <Compile Include="Conditionals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
