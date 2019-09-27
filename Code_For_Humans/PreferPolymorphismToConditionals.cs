@@ -24,7 +24,8 @@ namespace Code_For_Humans
 			Assert.IsFalse(user.IsLoggedIn);
 		}
 
-		private void ObjectsCanCoupleStateWithLogic()
+		[TestMethod]
+		public void ObjectsCanCoupleStateWithLogic()
 		{
 			//One of the major wins for OO programming is the fact that
 			//state is coupled with behavior. No need to branch over conditions using if or switch statements
