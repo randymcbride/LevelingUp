@@ -49,9 +49,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeDeclaritive.cs" />
+    <Compile Include="Common\ActiveUser.cs" />
+    <Compile Include="Common\Basketball\BoxScore.cs" />
+    <Compile Include="Common\Basketball\PlayerGameStatistic.cs" />
+    <Compile Include="Common\Basketball\PlayerGameStatsticExtension.cs" />
     <Compile Include="Common\Employee.cs" />
     <Compile Include="Common\EmployeeType.cs" />
-    <Compile Include="Conditionals.cs" />
+    <Compile Include="Common\InactiveUser.cs" />
+    <Compile Include="Common\BasicUser.cs" />
+    <Compile Include="Common\User.cs" />
+    <Compile Include="PreferPolymorphismToConditionals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
