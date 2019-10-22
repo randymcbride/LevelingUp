@@ -1,0 +1,23 @@
+﻿I. Adapter Pattern
+	A. Intent
+		1. Convert the interface of a class into another interface clients expect
+		2. Allow classes to work together that couldn't otherwise due to incompatible interfaces
+		3. Future-proof client implementations by having them depend on Adapter interfaces
+	B. Applicability
+		1. You want to use an existing class but its an interface
+		2. You want to create a reusable class that cooperates with unrelated or unforseen classes
+		3. You need to use several existing subclasses, but its impractical to adapt their interface by subclassing every one
+	C. Structure
+		1. See Adapter_Structure.png
+	D. How it is used
+		1. Clients depend on the Adapter interface rather than a particulare implementation
+		2. At least one concreate Adapter class is created to allow the client to work with a particular class
+		3. Future client needs for alternate implementations can be satisfied through the creation of additional concrete Adapter classes
+		4. Effective way to acheive Open/Closed Principle (i.e. the O in SOLID)
+	E. Consequences
+		1. A single Adapter interface may work with many Adaptees
+		2. Can be dificult to override the Adaptee behavior (with Object Adapter)
+	F. Example in .NET
+		1. ADO.NET
+			a. IDataAdapter => DbDataAdapter	=> OdbcDataAdapter
+																				=> SqlDataAdapter
