@@ -1,0 +1,5 @@
+﻿We want to store user records in a local .csv file. We have a handy dandy CsvDataAdapter that knows how to store data in a CSV.
+However, it does not implement the interface we would like. The interface we would like to use is ICsvRepository.cs.
+
+Adapter pattern to the rescue! The CsvRepositoryDataAdapter implements the ICsvRepository by adapting the features of the
+CsvDataAdapter. We get all of the goodies of CsvDataAdapter AND we get them in the interface we prefer.
