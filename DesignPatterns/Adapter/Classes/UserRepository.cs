@@ -18,5 +18,8 @@ namespace DesignPatterns.Adapter
 		{
 			repository.Insert(user);
 		}
+
+		public IEnumerable<User> GetAll() =>
+			repository.GetAll();
 	}
 }

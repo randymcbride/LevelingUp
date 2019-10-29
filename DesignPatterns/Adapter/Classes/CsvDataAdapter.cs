@@ -38,14 +38,14 @@ namespace DesignPatterns.Adapter
 		public int Update(DataSet dataSet)
 		{
 			var rowsInserted = 0;
-			using (var streamWriter = new StreamWriter(filePath))
+			using (var streamWriter = new StreamWriter(filePath, true))
 			{
 				for (int i = 0; i < dataSet.Tables.Count; i++)
 				{
 					var table = dataSet.Tables[i];
 					for (int j = 0; j < table.Rows.Count; j++)
 					{
-						streamWriter.WriteLine(table.Rows[j]);
+						streamWriter.WriteLine(table.Rows[j].ItemArray[0]);
 						rowsInserted++;
 					}
 				}

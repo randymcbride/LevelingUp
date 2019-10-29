@@ -27,15 +27,25 @@ namespace DesignPatterns.Adapter
 			{
 				items.Add(Deserialize(line));
 			}
+			file.Close();
 			return items;
 		}
 
 		public void Insert(T item)
 		{
-			var dataSet = new DataSet();
+			DataSet dataSet = GetDataSet();
 			csvDataAdapter.Add(Serialize(item));
 			csvDataAdapter.Fill(dataSet);
 			csvDataAdapter.Update(dataSet);
+		}
+
+		private static DataSet GetDataSet()
+		{
+			var dataSet = new DataSet();
+			var dataTable = new DataTable();
+			dataTable.Columns.Add(new DataColumn());
+			dataSet.Tables.Add(dataTable);
+			return dataSet;
 		}
 
 		private string Serialize(T item)
