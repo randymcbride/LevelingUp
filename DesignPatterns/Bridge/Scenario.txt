@@ -1,0 +1,7 @@
+﻿Our application requires authentication. The business asked us to be able to authenticate third party applications.
+We decided that we wanted to authenticate apps differntly then how we authenticate users. However, everything else about
+user and app requests we want to funciton the exact same way. In other words we want to be able to change what the class does
+without changing the class.
+
+Observe how all 4 parts of the bridge pattern (listed in bridge_pattern_notes 4-1) are implemented in the class folder.
+Run the Demonstration.cs test class to see it in action.

@@ -1,0 +1,18 @@
+﻿I. Bridge Pattern
+	A. Intent
+		1. Decouple an abstraction from its implementation so that the two can vary independently
+		2. Change this relationship ABSTRACTION -> IMPLEMENTATION to ABSTRACTION -> ABSTRACTION -> IMPLEMENTATION
+	B. Applicability
+		1. The bridge pattern is useful when both the class and what it does vary often.
+	C. How it is used (see bridg_pattern.png)
+		1. It has four parts
+			a. Abstraction (abstract class)
+				i. defines the abstract interface
+				ii. maintains a reference to the Impementor
+			b. Implementor (interface)
+				i. defines the interface for implementation classes
+			c. Concrete Implementor (class)
+				i. implements the interface
+			d. Refined Abstraction (class)
+				i. extends the abstract class
+				ii. utilizes a specific concrete implementor
