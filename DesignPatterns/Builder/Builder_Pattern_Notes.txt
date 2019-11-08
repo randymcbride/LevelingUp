@@ -1,0 +1,23 @@
+﻿I. Builder Pattern
+	A. Definition
+		1. Seperates the construction of a complex object from its representation so that the same construction
+			process can create different representations.
+	B. Form
+		1. Director --uses--> Builder <--implements-- Concrete Builder --creates--> Product
+		2. Director
+			a. Uses the builder
+			b. Knows how to build
+			c. The client calls the Director to consume the pattern.
+		3. Builder
+			a. Abstract
+			b. Defines the steps to build
+			c. Holds an instance of Product
+		4. Concrete Builder
+			a. Should be more than one of these (otherwise there is no reason to use the pattern)
+			b. Implements Builder
+			c. Think of it as a recipe
+	C. Problems it solves
+		1. How can a class create different representations of the same complex object.
+		2. How can a class that create a complex object be simplified.
+		3. 'new' is glue. Creating and assembling the parts of a complex object commits the class to creating
+				a particular representation of that complex object, making it difficult to change the representation
