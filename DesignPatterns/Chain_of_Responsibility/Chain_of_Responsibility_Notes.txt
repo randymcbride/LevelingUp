@@ -1,0 +1,21 @@
+﻿1. Definition
+	a. A source of command (or message) and a series of processing objects. Each processing object
+		 contains logic that defines the types of commands it can handle--the rest are passed down
+		 the chain. It is essentially an object oriented version of if . . . else if ... else if ... else.
+2. Form
+	a. Sender --sends-command--> Reciever1 --pass-command--> Receiver2 ---> more-recievers
+				^												|															|
+				|-------------------process & respond									|
+				---------------------------------------------------process & respond
+	b. Sender is aware of only one receiver
+	c. Each receiver is only aware of the next one
+	d. Receivers process the command or send it down the chain
+	e. The sender does not know who received it
+	f. The first receiver to handle the command termincates the chain
+	g. The order of the list matters
+3. Problems it solves
+	a. Decouples Sending of command from processing
+	b. Keeps the process open for extending but closed for editing
+	c. Allows you to determine "chain" of processing at run time.
+
+																
