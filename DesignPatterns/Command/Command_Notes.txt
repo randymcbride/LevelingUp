@@ -1,0 +1,30 @@
+﻿1. Definition
+	a. A pattern in which an object is used to encapsulate all information needed to
+		to perform an action or trigger an event at a later time.
+	b. It is also known as an Action or Transaction pattern
+2. Intent
+	a. Decouple clients that execute the command from the details and dependencies of the
+		command logic
+	b. Enables Delayed Execution
+		i. can queue commands for later execution
+		ii. if command objects are also persistent, they can be delayed across process restarts
+3. Applicability
+	a. Looging
+	b. Validation
+	c. Undo/Rollback
+4. Form
+	a. Command
+		i. knows about the Reciever and Invokes a method of the Reciever
+		ii. values for paramaters of the Receiver method are stored in the Command
+		iii. completley self contained (the client doesn't pass in arguments)
+	b. Receiver
+		i. does the work
+	c. Invoker
+		i. knows how to execute a command
+		ii. it may do bookkeeping about the execution
+		iii. it knows nothing of concrete commands, just the Command interface
+	d. Client
+		i. The Command, Receiver, and Invoker objects are held by a Client.
+		ii. decides which receiver objects it assigns to the command objects
+		iii. decides wich commands it assigns to the invoker
+		iv. decides which commands to execute at which points.
