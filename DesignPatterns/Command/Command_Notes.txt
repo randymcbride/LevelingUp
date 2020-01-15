@@ -9,7 +9,7 @@
 		i. can queue commands for later execution
 		ii. if command objects are also persistent, they can be delayed across process restarts
 3. Applicability
-	a. Looging
+	a. Logging
 	b. Validation
 	c. Undo/Rollback
 4. Form

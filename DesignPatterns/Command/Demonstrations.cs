@@ -54,11 +54,5 @@ namespace DesignPatterns.Command
 			Assert.AreEqual(0, commandQueue.FailCount);
 			Assert.AreEqual(2, commandQueue.TotalAttempts);
 		}
-
-		[TestMethod]
-		public void ProcessesAsyncInsertAndUpdates()
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

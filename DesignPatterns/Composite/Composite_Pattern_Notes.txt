@@ -1,0 +1,22 @@
+﻿I. Definition
+	a.	The composite pattern describes a group of objects that are treated the same way as a single instance of the same type of object. 
+			The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies.
+			Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
+
+II. When to use
+	a.	Composite should be used when clients ignore the difference between compositions of objects and individual objects.[1] If programmers find that they are using multiple objects in 
+			the same way, and often have nearly identical code to handle each of them, then composite is a good choice; it is less complex in this situation to treat primitives and composites 
+			as homogeneous.
+
+III. Structure
+	a. Component
+		1. is the abstraction for all components, including composite ones
+		2. declares the interface for objects in the composition
+		3. (optional) defines an interface for accessing a component's parent in the recursive structure, and implements it if that's appropriate
+	b. Leaf
+		1. represents leaf objects in the composition
+		2. implements all Component methods
+	c. Composite
+		1. represents a composite Component (component having children)
+		2. implements methods to manipulate children
+		3. implements all Component methods, generally by delegating them to its children
