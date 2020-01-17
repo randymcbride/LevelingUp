@@ -1,0 +1,54 @@
+﻿I. Definition
+	a. A pattern that allows behavior to be added to an instance at run time without affecting the behavior of other objects from the same calss.
+	b. It is related to the Chain of Responsibility pattern, the differnece being that in CoR, once class handles the request, while in decorator, all classes handle the request.
+	c. Sometimes called wrappers
+
+II. Intent
+	a. An alternantive to sub classing that is more flexible.
+	b. It can be used to extend the functionality of a class without modifying the underlying class.
+	c. Adhere to the Open Closed Prinicple
+
+III. Motivation
+	a. In some cases sub-classing can cause class explotion. Imagine the following example:
+		1. I wrote a windowing gui solution
+		2. Sometimes (not always) we want windows to scroll.
+		3. I extend the Window class by adding a ScrollingWindow subclass
+		4. Sometimes (not always) I want windows to have borders
+		5. I extend the Window class and Scrolling window classes with two new classes that feature borders.
+		6. So on and so forth. My class library is already exploding.
+
+IV. Structure
+	a. Component
+		1. Defines the interface for the ConcreteComponents and Decorators
+	b. ConcreteComponent(s)
+		1. Implements the Component interface with the intent of becoming instances of the Component
+	c. Decorator
+		1. Implements the Component interface
+		2. Has a property that points at an instance of Component
+	d. ConcreteDecorator(s)
+		1. Inherits from Decorator
+		2. Implements the new behavior
+	e. UML Diagram
+
+										==============
+										|	COMPONENT  |
+										==============
+													^
+													|
+													|
+							----------------------------
+							|														|
+			======================			 =================
+			|	CONCRETE_COMPONENT |			 |	 DECORATOR   |
+			======================       =================
+																		|	+Component   |
+																		=================
+																					^
+																					|
+																					|
+																		=======================
+																		|	CONCRETE_DECORATOR  |
+																		=======================
+																		| +NewProperty        |
+																		| +NewBehavior()      |
+																		=======================
