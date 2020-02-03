@@ -1,0 +1,35 @@
+﻿I. Intent
+	a. Simplify event registration by providing a single, centralized store.
+	b. Reduce coupling between publishers and subscribers
+	c. Reduce friction for creating new events
+	d. Reduce memory management related to eventing
+II. Applicability
+	a. You are building a composite appliation
+	b. You have complex screens
+	c. You have many publishers and subscribers
+	d. You have many events
+	e. New events are added frequently
+	f. Static events are a red flag
+III. Structure
+	a. Publisher
+		1. Knows about event aggregator, not subscribers
+		2. calls EventAggregator.Publication method to notify subscribers
+	b. EventAggregator
+		1. Provides a subscribe and publish method
+		2. void Subscribe(object subscriber);
+		3. void Publish<T>(T event);
+			a. Finds subscribers of the event
+			b. calls OnEvent for the proper subscribers.
+	c. Subscriber
+		1. Knows about event aggregator, but not publishers
+		2. calls subscription methods to receive notifications
+		3. Implements ISbuscribe<T> interface for each event it subscribes to
+	d. ISubscribe<T>
+		1. has OnEventMethod
+		2. void OnEvent<T>(T event);
+IV. Libraries that use this pattern
+	a. https://storyteller.github.io/
+	b. https://github.com/PrismLibrary/Prism
+V. Related patterns
+	a. Pub/sub
+	b. Observer
