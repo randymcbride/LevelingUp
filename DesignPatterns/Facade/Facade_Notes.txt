@@ -1,0 +1,14 @@
+﻿I. Facade Pattern
+	A. Definition
+		1. An ojbect that serves as an interface masking more complex underlying code.
+	B. Uses
+		1. improve readability and usability
+		2. provide context specific interface to more generic functionality
+		3. serve as a launching point for a broader refactor of monolithic systems in favor of loosley coupled code.
+	C. Structure
+		1. Client
+		2. Facade
+			a. Has a simple API
+			b. Depends on other classes to actually do the work
+		3. Other classes
+			a. The actual logic resides here.
